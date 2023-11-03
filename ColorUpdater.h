@@ -1,0 +1,18 @@
+#pragma once
+
+#include "ParticleUpdater.h"
+
+
+// [Credit] https://www.cppstories.com/2014/04/flexible-particle-system-start/
+// All parts of the particle system were heavily inspired by, if not lifted entirely from, this guide.
+class ColorUpdater : public ParticleUpdater
+{
+public:
+	void Update(float deltaTime, ParticleData* pData) override;
+
+	void SetColor(const uint color);
+
+
+private:
+	uint color_{ 0x000000 };
+};

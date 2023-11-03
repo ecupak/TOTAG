@@ -1,0 +1,1193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="template\template.cpp">
+      <Filter>template</Filter>
+    </ClCompile>
+    <ClCompile Include="template\opencl.cpp">
+      <Filter>template</Filter>
+    </ClCompile>
+    <ClCompile Include="template\opengl.cpp">
+      <Filter>template</Filter>
+    </ClCompile>
+    <ClCompile Include="template\sprite.cpp">
+      <Filter>template</Filter>
+    </ClCompile>
+    <ClCompile Include="template\surface.cpp">
+      <Filter>template</Filter>
+    </ClCompile>
+    <ClCompile Include="template\tmpl8math.cpp">
+      <Filter>template</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Game Loop</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>GameObjects\Actors\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerStandingState.cpp">
+      <Filter>GameObjects\Actors\Player\Player FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerWalkingState.cpp">
+      <Filter>GameObjects\Actors\Player\Player FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerJumpingState.cpp">
+      <Filter>GameObjects\Actors\Player\Player FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerFallingState.cpp">
+      <Filter>GameObjects\Actors\Player\Player FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="Shape.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerClimbingState.cpp">
+      <Filter>GameObjects\Actors\Player\Player FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="JumpCommand.cpp">
+      <Filter>GameObjects\Actors\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveCommand.cpp">
+      <Filter>GameObjects\Actors\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerBouncingState.cpp">
+      <Filter>GameObjects\Actors\Player\Player FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="LaunchCommand.cpp">
+      <Filter>GameObjects\Actors\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorGenerator.cpp">
+      <Filter>Particle System\Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="LifetimeGenerator.cpp">
+      <Filter>Particle System\Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="OriginGenerator.cpp">
+      <Filter>Particle System\Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleGenerator.cpp">
+      <Filter>Particle System\Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="PositionGenerator.cpp">
+      <Filter>Particle System\Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="RadianGenerator.cpp">
+      <Filter>Particle System\Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="VelocityGenerator.cpp">
+      <Filter>Particle System\Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleUpdater.cpp">
+      <Filter>Particle System\Updaters</Filter>
+    </ClCompile>
+    <ClCompile Include="PositionUpdater.cpp">
+      <Filter>Particle System\Updaters</Filter>
+    </ClCompile>
+    <ClCompile Include="RadianUpdater.cpp">
+      <Filter>Particle System\Updaters</Filter>
+    </ClCompile>
+    <ClCompile Include="LifetimeUpdater.cpp">
+      <Filter>Particle System\Updaters</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorUpdater.cpp">
+      <Filter>Particle System\Updaters</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleTrasher.cpp">
+      <Filter>Particle System\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleRenderer.cpp">
+      <Filter>Particle System\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleEmitter.cpp">
+      <Filter>Particle System\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleData.cpp">
+      <Filter>Particle System\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerZipliningState.cpp">
+      <Filter>GameObjects\Actors\Player\Player FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="Hitbox.cpp">
+      <Filter>Collisions</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerRecoilingState.cpp">
+      <Filter>GameObjects\Actors\Player\Player FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectCollisionManager.cpp">
+      <Filter>Collisions\Object Collision Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="PixelChecker.cpp">
+      <Filter>Collisions\Pixel Checker</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerSwingingState.cpp">
+      <Filter>GameObjects\Actors\Player\Player FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="Archer.cpp">
+      <Filter>GameObjects\Actors\Enemy\Archer</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerState.cpp">
+      <Filter>GameObjects\Actors\Player\Player FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="ClimbCommand.cpp">
+      <Filter>GameObjects\Actors\Player\Player Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerCommand.cpp">
+      <Filter>GameObjects\Actors\Player\Player Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Command.cpp">
+      <Filter>GameObjects\Actors\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="ArcherStandingState.cpp">
+      <Filter>GameObjects\Actors\Enemy\Archer\Archer FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionFinder.cpp">
+      <Filter>Collisions\Obstacle Collision Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Raycaster.cpp">
+      <Filter>Collisions\Obstacle Collision Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="ObstacleCollisionManager.cpp">
+      <Filter>Collisions\Obstacle Collision Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="TileCollisionManager.cpp">
+      <Filter>Collisions\Tile Collision Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="ArcherWalkingState.cpp">
+      <Filter>GameObjects\Actors\Enemy\Archer\Archer FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>GameObjects\Actors\Enemy\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyState.cpp">
+      <Filter>GameObjects\Actors\Enemy\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="ArcherAlertState.cpp">
+      <Filter>GameObjects\Actors\Enemy\Archer\Archer FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="ArcherShootingState.cpp">
+      <Filter>GameObjects\Actors\Enemy\Archer\Archer FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>GameObjects\Actors\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorState.cpp">
+      <Filter>GameObjects\Actors\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>GameObjects\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Rock.cpp">
+      <Filter>GameObjects\Props\Rock</Filter>
+    </ClCompile>
+    <ClCompile Include="SwingingRope.cpp">
+      <Filter>GameObjects\Props\Swinging Rope</Filter>
+    </ClCompile>
+    <ClCompile Include="RockPool.cpp">
+      <Filter>Object Management\Object Pools\Rock</Filter>
+    </ClCompile>
+    <ClCompile Include="ArrowPool.cpp">
+      <Filter>Object Management\Object Pools\Arrow</Filter>
+    </ClCompile>
+    <ClCompile Include="Arrow.cpp">
+      <Filter>GameObjects\Props\Arrow</Filter>
+    </ClCompile>
+    <ClCompile Include="ThrowRockCommand.cpp">
+      <Filter>GameObjects\Actors\Player\Player Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="ArcherRecoilingState.cpp">
+      <Filter>GameObjects\Actors\Enemy\Archer\Archer FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="Knight.cpp">
+      <Filter>GameObjects\Actors\Enemy\Knight</Filter>
+    </ClCompile>
+    <ClCompile Include="KnightAttackingState.cpp">
+      <Filter>GameObjects\Actors\Enemy\Knight\Knight FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="KnightRecoilState.cpp">
+      <Filter>GameObjects\Actors\Enemy\Knight\Knight FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="KnightWalkingState.cpp">
+      <Filter>GameObjects\Actors\Enemy\Knight\Knight FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="Coin.cpp">
+      <Filter>GameObjects\Props\Coin</Filter>
+    </ClCompile>
+    <ClCompile Include="ArcherConstructor.cpp">
+      <Filter>Object Management\Object Constructors\Archer Constructor</Filter>
+    </ClCompile>
+    <ClCompile Include="ArcherList.cpp">
+      <Filter>Object Management\Object Lists\Archer List</Filter>
+    </ClCompile>
+    <ClCompile Include="KnightList.cpp">
+      <Filter>Object Management\Object Lists\Knight List</Filter>
+    </ClCompile>
+    <ClCompile Include="KnightConstructor.cpp">
+      <Filter>Object Management\Object Constructors\Knight Constructor</Filter>
+    </ClCompile>
+    <ClCompile Include="SwingingRopeList.cpp">
+      <Filter>Object Management\Object Lists\Swinging Rope List</Filter>
+    </ClCompile>
+    <ClCompile Include="SwingingRopeConstructor.cpp">
+      <Filter>Object Management\Object Constructors\Swinging Rope Constructor</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerPlacer.cpp">
+      <Filter>Object Management\Object Constructors\Player Placer</Filter>
+    </ClCompile>
+    <ClCompile Include="Scorekeeper.cpp">
+      <Filter>Game Loop\Score</Filter>
+    </ClCompile>
+    <ClCompile Include="RockPile.cpp">
+      <Filter>GameObjects\Props\Rock Pile</Filter>
+    </ClCompile>
+    <ClCompile Include="RockPileList.cpp">
+      <Filter>Object Management\Object Lists\Rock Pile List</Filter>
+    </ClCompile>
+    <ClCompile Include="RockPileConstructor.cpp">
+      <Filter>Object Management\Object Constructors\Rock Pile Constructor</Filter>
+    </ClCompile>
+    <ClCompile Include="CoinList.cpp">
+      <Filter>Object Management\Object Lists\Coin List</Filter>
+    </ClCompile>
+    <ClCompile Include="CoinConstructor.cpp">
+      <Filter>Object Management\Object Constructors\Coin Constructor</Filter>
+    </ClCompile>
+    <ClCompile Include="CoinSound.cpp">
+      <Filter>Audio\Coin</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelSound.cpp">
+      <Filter>Audio\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioManager.cpp">
+      <Filter>Audio\Audio Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Event.cpp">
+      <Filter>Audio\Audio Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Observer.cpp">
+      <Filter>Observer Subject</Filter>
+    </ClCompile>
+    <ClCompile Include="Subject.cpp">
+      <Filter>Observer Subject</Filter>
+    </ClCompile>
+    <ClCompile Include="RewindManager.cpp">
+      <Filter>Rewind\Rewind Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameData.cpp">
+      <Filter>Rewind\Frame Data</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorRewindData.cpp">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Actor Rewind Data</Filter>
+    </ClCompile>
+    <ClCompile Include="ArcherRewindData.cpp">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Actor Rewind Data\Enemy Rewind Data\Archer Rewind Data</Filter>
+    </ClCompile>
+    <ClCompile Include="ArrowRewindData.cpp">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Arrow Rewind Data</Filter>
+    </ClCompile>
+    <ClCompile Include="CoinRewindData.cpp">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Coin Rewind Data</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyRewindData.cpp">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Actor Rewind Data\Enemy Rewind Data</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyStateRewindData.cpp">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Actor Rewind Data\Enemy Rewind Data\EnemyState Rewind Data</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjectRewindData.cpp">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data</Filter>
+    </ClCompile>
+    <ClCompile Include="KnightRewindData.cpp">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Actor Rewind Data\Enemy Rewind Data\Knight Rewind Data</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerRewindData.cpp">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Actor Rewind Data\Player Rewind Data</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerStateRewindData.cpp">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Actor Rewind Data\Player Rewind Data\PlayerState  Rewind Data</Filter>
+    </ClCompile>
+    <ClCompile Include="RockPileRewindData.cpp">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Rock Pile Rewind Data</Filter>
+    </ClCompile>
+    <ClCompile Include="RockRewindData.cpp">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Rock Rewind Data</Filter>
+    </ClCompile>
+    <ClCompile Include="SwingingRopeRewindData.cpp">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Swinging Rope Rewind Data</Filter>
+    </ClCompile>
+    <ClCompile Include="RockPileSound.cpp">
+      <Filter>Audio\RockPile</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRewindData.cpp">
+      <Filter>Rewind\Frame Data\Game Rewind Data</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="Parser.cpp">
+      <Filter>Level\Parser</Filter>
+    </ClCompile>
+    <ClCompile Include="LayerData.cpp">
+      <Filter>Level\Level Data\Layer Data</Filter>
+    </ClCompile>
+    <ClCompile Include="MapData.cpp">
+      <Filter>Level\Level Data\Map Data</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectData.cpp">
+      <Filter>Level\Level Data\Object Data</Filter>
+    </ClCompile>
+    <ClCompile Include="TilesetData.cpp">
+      <Filter>Level\Level Data\Tileset Data</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Game Loop\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="EndScreenState.cpp">
+      <Filter>Game Loop\FSM\End Screen</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScreenState.cpp">
+      <Filter>Game Loop\FSM\Title Screen</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayScreenState.cpp">
+      <Filter>Game Loop\FSM\Play Screen</Filter>
+    </ClCompile>
+    <ClCompile Include="NormalState.cpp">
+      <Filter>Game Loop\FSM\Play Screen\Normal State</Filter>
+    </ClCompile>
+    <ClCompile Include="RewindState.cpp">
+      <Filter>Game Loop\FSM\Play Screen\Rewind State</Filter>
+    </ClCompile>
+    <ClCompile Include="GameoverState.cpp">
+      <Filter>Game Loop\FSM\End Screen\GameoverState</Filter>
+    </ClCompile>
+    <ClCompile Include="VictoryState.cpp">
+      <Filter>Game Loop\FSM\End Screen\VictoryState</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyboardManager.cpp">
+      <Filter>Game Loop\Input Handling</Filter>
+    </ClCompile>
+    <ClCompile Include="SavePoint.cpp">
+      <Filter>GameObjects\Props\Save Point</Filter>
+    </ClCompile>
+    <ClCompile Include="SavePointRewindData.cpp">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Save Point Rewind Data</Filter>
+    </ClCompile>
+    <ClCompile Include="SaveSystem.cpp">
+      <Filter>Game Loop\Save System</Filter>
+    </ClCompile>
+    <ClCompile Include="SavePointConstructor.cpp">
+      <Filter>Object Management\Object Constructors\Save Point Constructor</Filter>
+    </ClCompile>
+    <ClCompile Include="SavePointList.cpp">
+      <Filter>Object Management\Object Lists\Save Point List</Filter>
+    </ClCompile>
+    <ClCompile Include="Soul.cpp">
+      <Filter>GameObjects\Props\Soul</Filter>
+    </ClCompile>
+    <ClCompile Include="SoulConstructor.cpp">
+      <Filter>Object Management\Object Constructors\Soul Constructor</Filter>
+    </ClCompile>
+    <ClCompile Include="SoulList.cpp">
+      <Filter>Object Management\Object Lists\Soul List</Filter>
+    </ClCompile>
+    <ClCompile Include="SoulRewindData.cpp">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Soul Rewind Data</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundSound.cpp">
+      <Filter>Audio\Soul</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelExit.cpp">
+      <Filter>GameObjects\Props\Level Exit</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelExitPlacer.cpp">
+      <Filter>Object Management\Object Constructors\Level Exit Placer</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicParticleSystem.cpp">
+      <Filter>Particle System</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleSystem.cpp">
+      <Filter>Particle System</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleRewindData.cpp">
+      <Filter>Rewind\Frame Data\Particle Rewind Data</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraRewindData.cpp">
+      <Filter>Rewind\Frame Data\Camera Rewind Data</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="template\common.h">
+      <Filter>template</Filter>
+    </ClInclude>
+    <ClInclude Include="template\precomp.h">
+      <Filter>template</Filter>
+    </ClInclude>
+    <ClInclude Include="cl\tools.cl">
+      <Filter>template\cl</Filter>
+    </ClInclude>
+    <ClInclude Include="template\opencl.h">
+      <Filter>template</Filter>
+    </ClInclude>
+    <ClInclude Include="template\opengl.h">
+      <Filter>template</Filter>
+    </ClInclude>
+    <ClInclude Include="template\sprite.h">
+      <Filter>template</Filter>
+    </ClInclude>
+    <ClInclude Include="template\surface.h">
+      <Filter>template</Filter>
+    </ClInclude>
+    <ClInclude Include="template\tmpl8math.h">
+      <Filter>template</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Game Loop</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>GameObjects\Actors\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerStandingState.h">
+      <Filter>GameObjects\Actors\Player\Player FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerWalkingState.h">
+      <Filter>GameObjects\Actors\Player\Player FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerJumpingState.h">
+      <Filter>GameObjects\Actors\Player\Player FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerFallingState.h">
+      <Filter>GameObjects\Actors\Player\Player FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerClimbingState.h">
+      <Filter>GameObjects\Actors\Player\Player FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="JumpCommand.h">
+      <Filter>GameObjects\Actors\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveCommand.h">
+      <Filter>GameObjects\Actors\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerBouncingState.h">
+      <Filter>GameObjects\Actors\Player\Player FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="LaunchCommand.h">
+      <Filter>GameObjects\Actors\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorGenerator.h">
+      <Filter>Particle System\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="LifetimeGenerator.h">
+      <Filter>Particle System\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="OriginGenerator.h">
+      <Filter>Particle System\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleGenerator.h">
+      <Filter>Particle System\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="PositionGenerator.h">
+      <Filter>Particle System\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="RadianGenerator.h">
+      <Filter>Particle System\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="VelocityGenerator.h">
+      <Filter>Particle System\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="RadianUpdater.h">
+      <Filter>Particle System\Updaters</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleUpdater.h">
+      <Filter>Particle System\Updaters</Filter>
+    </ClInclude>
+    <ClInclude Include="PositionUpdater.h">
+      <Filter>Particle System\Updaters</Filter>
+    </ClInclude>
+    <ClInclude Include="LifetimeUpdater.h">
+      <Filter>Particle System\Updaters</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorUpdater.h">
+      <Filter>Particle System\Updaters</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleTrasher.h">
+      <Filter>Particle System\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleRenderer.h">
+      <Filter>Particle System\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleEmitter.h">
+      <Filter>Particle System\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleData.h">
+      <Filter>Particle System\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerZipliningState.h">
+      <Filter>GameObjects\Actors\Player\Player FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="Hitbox.h">
+      <Filter>Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="TileCollision.h">
+      <Filter>Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerRecoilingState.h">
+      <Filter>GameObjects\Actors\Player\Player FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectCollisionManager.h">
+      <Filter>Collisions\Object Collision Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="PixelChecker.h">
+      <Filter>Collisions\Pixel Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerSwingingState.h">
+      <Filter>GameObjects\Actors\Player\Player FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Archer.h">
+      <Filter>GameObjects\Actors\Enemy\Archer</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerState.h">
+      <Filter>GameObjects\Actors\Player\Player FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="ClimbCommand.h">
+      <Filter>GameObjects\Actors\Player\Player Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerCommand.h">
+      <Filter>GameObjects\Actors\Player\Player Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Command.h">
+      <Filter>GameObjects\Actors\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="ArcherStandingState.h">
+      <Filter>GameObjects\Actors\Enemy\Archer\Archer FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionFinder.h">
+      <Filter>Collisions\Obstacle Collision Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Raycaster.h">
+      <Filter>Collisions\Obstacle Collision Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="ObstacleCollisionManager.h">
+      <Filter>Collisions\Obstacle Collision Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="TileCollisionManager.h">
+      <Filter>Collisions\Tile Collision Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="ArcherWalkingState.h">
+      <Filter>GameObjects\Actors\Enemy\Archer\Archer FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>GameObjects\Actors\Enemy\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyState.h">
+      <Filter>GameObjects\Actors\Enemy\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="ArcherAlertState.h">
+      <Filter>GameObjects\Actors\Enemy\Archer\Archer FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="ArcherShootingState.h">
+      <Filter>GameObjects\Actors\Enemy\Archer\Archer FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>GameObjects\Actors\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorState.h">
+      <Filter>GameObjects\Actors\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>GameObjects\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="SwingingRope.h">
+      <Filter>GameObjects\Props\Swinging Rope</Filter>
+    </ClInclude>
+    <ClInclude Include="Rock.h">
+      <Filter>GameObjects\Props\Rock</Filter>
+    </ClInclude>
+    <ClInclude Include="RockPool.h">
+      <Filter>Object Management\Object Pools\Rock</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrowPool.h">
+      <Filter>Object Management\Object Pools\Arrow</Filter>
+    </ClInclude>
+    <ClInclude Include="Arrow.h">
+      <Filter>GameObjects\Props\Arrow</Filter>
+    </ClInclude>
+    <ClInclude Include="ThrowRockCommand.h">
+      <Filter>GameObjects\Actors\Player\Player Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="ArcherRecoilingState.h">
+      <Filter>GameObjects\Actors\Enemy\Archer\Archer FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Knight.h">
+      <Filter>GameObjects\Actors\Enemy\Knight</Filter>
+    </ClInclude>
+    <ClInclude Include="KnightAttackingState.h">
+      <Filter>GameObjects\Actors\Enemy\Knight\Knight FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="KnightRecoilState.h">
+      <Filter>GameObjects\Actors\Enemy\Knight\Knight FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="KnightWalkingState.h">
+      <Filter>GameObjects\Actors\Enemy\Knight\Knight FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Coin.h">
+      <Filter>GameObjects\Props\Coin</Filter>
+    </ClInclude>
+    <ClInclude Include="ArcherConstructor.h">
+      <Filter>Object Management\Object Constructors\Archer Constructor</Filter>
+    </ClInclude>
+    <ClInclude Include="ArcherList.h">
+      <Filter>Object Management\Object Lists\Archer List</Filter>
+    </ClInclude>
+    <ClInclude Include="KnightList.h">
+      <Filter>Object Management\Object Lists\Knight List</Filter>
+    </ClInclude>
+    <ClInclude Include="KnightConstructor.h">
+      <Filter>Object Management\Object Constructors\Knight Constructor</Filter>
+    </ClInclude>
+    <ClInclude Include="SwingingRopeList.h">
+      <Filter>Object Management\Object Lists\Swinging Rope List</Filter>
+    </ClInclude>
+    <ClInclude Include="SwingingRopeConstructor.h">
+      <Filter>Object Management\Object Constructors\Swinging Rope Constructor</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerPlacer.h">
+      <Filter>Object Management\Object Constructors\Player Placer</Filter>
+    </ClInclude>
+    <ClInclude Include="Scorekeeper.h">
+      <Filter>Game Loop\Score</Filter>
+    </ClInclude>
+    <ClInclude Include="RockPile.h">
+      <Filter>GameObjects\Props\Rock Pile</Filter>
+    </ClInclude>
+    <ClInclude Include="RockPileList.h">
+      <Filter>Object Management\Object Lists\Rock Pile List</Filter>
+    </ClInclude>
+    <ClInclude Include="RockPileConstructor.h">
+      <Filter>Object Management\Object Constructors\Rock Pile Constructor</Filter>
+    </ClInclude>
+    <ClInclude Include="CoinList.h">
+      <Filter>Object Management\Object Lists\Coin List</Filter>
+    </ClInclude>
+    <ClInclude Include="CoinConstructor.h">
+      <Filter>Object Management\Object Constructors\Coin Constructor</Filter>
+    </ClInclude>
+    <ClInclude Include="CoinSound.h">
+      <Filter>Audio\Coin</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelSound.h">
+      <Filter>Audio\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioManager.h">
+      <Filter>Audio\Audio Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>Audio\Audio Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer.h">
+      <Filter>Observer Subject</Filter>
+    </ClInclude>
+    <ClInclude Include="Subject.h">
+      <Filter>Observer Subject</Filter>
+    </ClInclude>
+    <ClInclude Include="RewindManager.h">
+      <Filter>Rewind\Rewind Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameData.h">
+      <Filter>Rewind\Frame Data</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorRewindData.h">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Actor Rewind Data</Filter>
+    </ClInclude>
+    <ClInclude Include="ArcherRewindData.h">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Actor Rewind Data\Enemy Rewind Data\Archer Rewind Data</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrowRewindData.h">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Arrow Rewind Data</Filter>
+    </ClInclude>
+    <ClInclude Include="CoinRewindData.h">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Coin Rewind Data</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyRewindData.h">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Actor Rewind Data\Enemy Rewind Data</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyStateRewindData.h">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Actor Rewind Data\Enemy Rewind Data\EnemyState Rewind Data</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectRewindData.h">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data</Filter>
+    </ClInclude>
+    <ClInclude Include="KnightRewindData.h">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Actor Rewind Data\Enemy Rewind Data\Knight Rewind Data</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerRewindData.h">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Actor Rewind Data\Player Rewind Data</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerStateRewindData.h">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Actor Rewind Data\Player Rewind Data\PlayerState  Rewind Data</Filter>
+    </ClInclude>
+    <ClInclude Include="RockPileRewindData.h">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Rock Pile Rewind Data</Filter>
+    </ClInclude>
+    <ClInclude Include="SwingingRopeRewindData.h">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Swinging Rope Rewind Data</Filter>
+    </ClInclude>
+    <ClInclude Include="RockRewindData.h">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Rock Rewind Data</Filter>
+    </ClInclude>
+    <ClInclude Include="RockPileSound.h">
+      <Filter>Audio\RockPile</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRewindData.h">
+      <Filter>Rewind\Frame Data\Game Rewind Data</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Parser.h">
+      <Filter>Level\Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="LayerData.h">
+      <Filter>Level\Level Data\Layer Data</Filter>
+    </ClInclude>
+    <ClInclude Include="MapData.h">
+      <Filter>Level\Level Data\Map Data</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectData.h">
+      <Filter>Level\Level Data\Object Data</Filter>
+    </ClInclude>
+    <ClInclude Include="TilesetData.h">
+      <Filter>Level\Level Data\Tileset Data</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Game Loop\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="EndScreenState.h">
+      <Filter>Game Loop\FSM\End Screen</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScreenState.h">
+      <Filter>Game Loop\FSM\Title Screen</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayScreenState.h">
+      <Filter>Game Loop\FSM\Play Screen</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalState.h">
+      <Filter>Game Loop\FSM\Play Screen\Normal State</Filter>
+    </ClInclude>
+    <ClInclude Include="RewindState.h">
+      <Filter>Game Loop\FSM\Play Screen\Rewind State</Filter>
+    </ClInclude>
+    <ClInclude Include="GameoverState.h">
+      <Filter>Game Loop\FSM\End Screen\GameoverState</Filter>
+    </ClInclude>
+    <ClInclude Include="VictoryState.h">
+      <Filter>Game Loop\FSM\End Screen\VictoryState</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyboardManager.h">
+      <Filter>Game Loop\Input Handling</Filter>
+    </ClInclude>
+    <ClInclude Include="SavePoint.h">
+      <Filter>GameObjects\Props\Save Point</Filter>
+    </ClInclude>
+    <ClInclude Include="SavePointRewindData.h">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Save Point Rewind Data</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveSystem.h">
+      <Filter>Game Loop\Save System</Filter>
+    </ClInclude>
+    <ClInclude Include="SavePointConstructor.h">
+      <Filter>Object Management\Object Constructors\Save Point Constructor</Filter>
+    </ClInclude>
+    <ClInclude Include="SavePointList.h">
+      <Filter>Object Management\Object Lists\Save Point List</Filter>
+    </ClInclude>
+    <ClInclude Include="Soul.h">
+      <Filter>GameObjects\Props\Soul</Filter>
+    </ClInclude>
+    <ClInclude Include="SoulConstructor.h">
+      <Filter>Object Management\Object Constructors\Soul Constructor</Filter>
+    </ClInclude>
+    <ClInclude Include="SoulList.h">
+      <Filter>Object Management\Object Lists\Soul List</Filter>
+    </ClInclude>
+    <ClInclude Include="SoulRewindData.h">
+      <Filter>Rewind\Frame Data\GameObject Rewind Data\Soul Rewind Data</Filter>
+    </ClInclude>
+    <ClInclude Include="SoulSound.h">
+      <Filter>Audio\Soul</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelExit.h">
+      <Filter>GameObjects\Props\Level Exit</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelExitPlacer.h">
+      <Filter>Object Management\Object Constructors\Level Exit Placer</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicParticleSystem.h">
+      <Filter>Particle System</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleSystem.h">
+      <Filter>Particle System</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleRewindData.h">
+      <Filter>Rewind\Frame Data\Particle Rewind Data</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraRewindData.h">
+      <Filter>Rewind\Frame Data\Camera Rewind Data</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="template\LICENSE">
+      <Filter>template</Filter>
+    </None>
+    <None Include="README.md">
+      <Filter>template</Filter>
+    </None>
+    <None Include="cl\kernels.cl">
+      <Filter>template\cl</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="template">
+      <UniqueIdentifier>{a7d6e3cb-bfcd-438d-979f-17df241a55b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="template\cl">
+      <UniqueIdentifier>{dc41819e-b6c1-4070-b4c1-0849e444ca7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Helpers">
+      <UniqueIdentifier>{2f5cb92a-6be6-4656-b7d0-be65af9f649e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Loop">
+      <UniqueIdentifier>{6ab16fbb-bd86-40a8-a50e-db356aad3e06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Particle System">
+      <UniqueIdentifier>{1cd02f9f-8420-4305-9821-e23540fccc02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level">
+      <UniqueIdentifier>{5f9ca66e-b2c6-4077-9d41-05fba44316b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collisions">
+      <UniqueIdentifier>{9066399c-99e7-45dc-925f-778d6bc1a177}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collisions\Tile Collision Manager">
+      <UniqueIdentifier>{ff955f70-9123-4927-9d3f-d3fd4d2a654e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collisions\Object Collision Manager">
+      <UniqueIdentifier>{e4234881-67b4-4f13-ac23-1408510f8d47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collisions\Pixel Checker">
+      <UniqueIdentifier>{bfcf4dac-e37c-4124-90ea-e186526a8bd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collisions\Obstacle Collision Manager">
+      <UniqueIdentifier>{f92dc003-3a6f-4c77-9b78-5f777c736f6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Management">
+      <UniqueIdentifier>{f525db1d-c44a-4452-8d16-7f5fb7547bf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Management\Object Lists">
+      <UniqueIdentifier>{1832598c-731e-4888-8ce5-80f6fedb74ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Management\Object Constructors">
+      <UniqueIdentifier>{57a3e32b-7512-4913-8773-628d236b4869}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Management\Object Pools">
+      <UniqueIdentifier>{17490676-4198-4aae-8fae-b5983f815853}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Management\Object Pools\Rock">
+      <UniqueIdentifier>{00b8bc53-6999-4b4b-9838-754088e55458}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Management\Object Pools\Arrow">
+      <UniqueIdentifier>{72b3bd34-1a1a-49f0-8f34-699b46f0feb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Management\Object Constructors\Archer Constructor">
+      <UniqueIdentifier>{b76c774b-e7d7-41b0-826d-5f8bac244c3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Management\Object Lists\Archer List">
+      <UniqueIdentifier>{1c499a0c-bcd8-497e-a71c-42f76b7bad19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Management\Object Lists\Knight List">
+      <UniqueIdentifier>{88c86908-8ab5-4883-bd9d-8d68f21c0943}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Management\Object Constructors\Knight Constructor">
+      <UniqueIdentifier>{58b22ae3-6cde-428e-b69d-25d814d7a8a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Management\Object Lists\Swinging Rope List">
+      <UniqueIdentifier>{24402a23-8ad1-487d-9c73-68a5ad36bb09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Management\Object Constructors\Swinging Rope Constructor">
+      <UniqueIdentifier>{fce51565-533b-40c5-856e-9ceb18adc6ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Management\Object Constructors\Player Placer">
+      <UniqueIdentifier>{0738c0de-341d-4ba9-a7b4-e670890a4e3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Management\Object Lists\Rock Pile List">
+      <UniqueIdentifier>{ef0ea30d-c52a-48a0-9dba-4636b2560111}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Management\Object Constructors\Rock Pile Constructor">
+      <UniqueIdentifier>{b4c9be67-4a19-4e2c-872f-ee0e398295a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Management\Object Lists\Coin List">
+      <UniqueIdentifier>{1ddb36f6-875b-4525-aaaf-97eb505131d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Management\Object Constructors\Coin Constructor">
+      <UniqueIdentifier>{8c11779b-7eaf-4f1c-9274-dcc2120e3c92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Audio">
+      <UniqueIdentifier>{e0455fd2-8cb8-411f-b006-7671dd22e178}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Audio\Coin">
+      <UniqueIdentifier>{eaf07e79-8018-4b0b-8a8d-2f214aa86ac5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Audio\Level">
+      <UniqueIdentifier>{848b9276-ea77-4ad4-a0bf-9cec2c39631b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Audio\Audio Manager">
+      <UniqueIdentifier>{be1d944d-e93f-4633-8b1f-18a36c6a68b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Audio\Audio Event">
+      <UniqueIdentifier>{c0322241-910e-404d-b82b-e7ea04fe80b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rewind">
+      <UniqueIdentifier>{a1e045b2-5465-4fa7-8d99-6469ba2340c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rewind\Rewind Manager">
+      <UniqueIdentifier>{6d527782-0acd-4781-88c4-cc84e353c12b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rewind\Frame Data">
+      <UniqueIdentifier>{c5d0f3ea-509e-4768-ad36-b4798234480d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rewind\Frame Data\GameObject Rewind Data">
+      <UniqueIdentifier>{654871da-548e-4dd0-9dff-a922cce59297}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rewind\Frame Data\GameObject Rewind Data\Actor Rewind Data">
+      <UniqueIdentifier>{8bc9ff54-904a-4eb6-a1fa-679453ca4843}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rewind\Frame Data\GameObject Rewind Data\Actor Rewind Data\Player Rewind Data">
+      <UniqueIdentifier>{a243a731-e838-4f38-8848-ea444a4be87c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rewind\Frame Data\GameObject Rewind Data\Actor Rewind Data\Player Rewind Data\PlayerState  Rewind Data">
+      <UniqueIdentifier>{58b8725a-7d88-4fed-87b3-f7922ed2831c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rewind\Frame Data\GameObject Rewind Data\Actor Rewind Data\Enemy Rewind Data">
+      <UniqueIdentifier>{9d2f8bde-527b-48b4-bdef-8bc3d5bc7590}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rewind\Frame Data\GameObject Rewind Data\Actor Rewind Data\Enemy Rewind Data\EnemyState Rewind Data">
+      <UniqueIdentifier>{42d1cce3-44ea-4c43-8e30-8370c6a77a02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rewind\Frame Data\GameObject Rewind Data\Actor Rewind Data\Enemy Rewind Data\Archer Rewind Data">
+      <UniqueIdentifier>{fb379ee7-c8e4-440b-9d15-37b64b0e278a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rewind\Frame Data\GameObject Rewind Data\Actor Rewind Data\Enemy Rewind Data\Knight Rewind Data">
+      <UniqueIdentifier>{d359d8f9-7b49-4a9f-9a8c-3a3f80bab662}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rewind\Frame Data\GameObject Rewind Data\Arrow Rewind Data">
+      <UniqueIdentifier>{da93c64b-ec3a-4e3d-acb5-41be6abe95e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rewind\Frame Data\GameObject Rewind Data\Coin Rewind Data">
+      <UniqueIdentifier>{1efe294b-cf8a-49e3-a2fe-45bbdb7d2596}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rewind\Frame Data\GameObject Rewind Data\Rock Pile Rewind Data">
+      <UniqueIdentifier>{b175c0dc-67a2-4a0a-92f5-f6879022ed0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rewind\Frame Data\GameObject Rewind Data\Rock Rewind Data">
+      <UniqueIdentifier>{c6f64245-8b90-444b-933d-6b22fd869d35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rewind\Frame Data\GameObject Rewind Data\Swinging Rope Rewind Data">
+      <UniqueIdentifier>{010b7b3b-049e-4ffa-9430-c2fd6952a114}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Audio\RockPile">
+      <UniqueIdentifier>{b8b10e59-d2ef-4dbf-9532-7ab3eb44fbda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rewind\Frame Data\Game Rewind Data">
+      <UniqueIdentifier>{20ae8bc6-2003-4840-b5bc-65d9538e34c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level\Parser">
+      <UniqueIdentifier>{c5411126-2e2f-4f26-a79c-0d0b0d1e320f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level\Level Data">
+      <UniqueIdentifier>{3eac4beb-74c8-4298-af1d-2152f97199cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level\Level Data\Tileset Data">
+      <UniqueIdentifier>{2927771d-5327-4c79-bb59-045cdfe4e650}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level\Level Data\Layer Data">
+      <UniqueIdentifier>{47e993b0-dd8e-4d8a-aa70-bdc9abe363fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level\Level Data\Map Data">
+      <UniqueIdentifier>{3841d316-b127-4f89-8122-c3171a27038e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level\Level Data\Object Data">
+      <UniqueIdentifier>{a2c852c1-0681-4fcf-ba52-ed468809ce26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Loop\FSM">
+      <UniqueIdentifier>{a8b41930-9e5c-4205-8f53-d44ba175752e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects">
+      <UniqueIdentifier>{27b1b212-431c-4b3c-beb1-7e25759a330e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Actors">
+      <UniqueIdentifier>{e3a5eb40-bca2-48c1-8858-a918d644ffc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Actors\Enemy">
+      <UniqueIdentifier>{02e368d0-47da-4039-afce-d235c6a6238a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Actors\Enemy\Archer">
+      <UniqueIdentifier>{671f4707-801a-4ae4-813e-410b2abee681}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Actors\Enemy\Archer\Archer FSM">
+      <UniqueIdentifier>{a914684b-0ea4-4025-9672-6caa56098e2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Actors\Enemy\Base">
+      <UniqueIdentifier>{74f443d8-09a7-4cb3-bafd-506fe16b7a58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Actors\Enemy\Knight">
+      <UniqueIdentifier>{ec9528ba-2ee5-4340-987c-029d55270e81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Actors\Enemy\Knight\Knight FSM">
+      <UniqueIdentifier>{47034602-d795-4c59-8caa-4aea08ad4837}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Actors\Commands">
+      <UniqueIdentifier>{a22c47ab-f909-4261-827d-72fdeebddc52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Actors\Base">
+      <UniqueIdentifier>{77722f3f-36b0-4240-bac0-2197f7c7e1b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Actors\Player">
+      <UniqueIdentifier>{707bdf49-8ab6-4f0a-914d-eae4eb2a33bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Actors\Player\Player FSM">
+      <UniqueIdentifier>{d04ff067-0d0e-4a43-a45d-9f6e5a827333}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Actors\Player\Player Commands">
+      <UniqueIdentifier>{59180db2-592b-4d86-949d-f90c03942907}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Props">
+      <UniqueIdentifier>{d296cc90-1c28-41fb-aaea-399710b3df92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Props\Swinging Rope">
+      <UniqueIdentifier>{fb591553-d7b0-414b-a070-fa8942a96b66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Props\Rock">
+      <UniqueIdentifier>{4450a72c-6ba5-47aa-849b-fd610e18917b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Props\Rock Pile">
+      <UniqueIdentifier>{62f20061-1d4e-4e39-8cd2-ceaa7658530b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Props\Coin">
+      <UniqueIdentifier>{ba41e6c2-ad4c-4721-a16c-dbb913c6aec4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Base">
+      <UniqueIdentifier>{23ba6069-c5af-4daf-8b7c-255ef24ddede}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Loop\FSM\Title Screen">
+      <UniqueIdentifier>{2e35519c-8b96-4195-9991-0b0dd2cc20e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Loop\FSM\Play Screen">
+      <UniqueIdentifier>{05933b8d-a6b9-4080-9582-75c4dd2458e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Loop\FSM\End Screen">
+      <UniqueIdentifier>{8ceb4a35-ab37-4880-bd00-afd4cacefd54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Loop\FSM\Play Screen\Normal State">
+      <UniqueIdentifier>{58a2b249-52dc-4ab7-bc6a-52d1ec2f1b5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Loop\FSM\Play Screen\Rewind State">
+      <UniqueIdentifier>{5949d1eb-a756-467f-8b58-46f4db866309}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Loop\FSM\End Screen\VictoryState">
+      <UniqueIdentifier>{55f44e74-8a92-428b-ab62-fc3c141c4f64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Loop\FSM\End Screen\GameoverState">
+      <UniqueIdentifier>{2aa3c0c1-4544-4a08-9a56-01447014af9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Loop\Input Handling">
+      <UniqueIdentifier>{514aeb59-5810-4c60-97bd-f2b596ce572c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Props\Arrow">
+      <UniqueIdentifier>{59757ce4-0ffc-4cc4-8f78-4c5844870a18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rewind\Frame Data\GameObject Rewind Data\Save Point Rewind Data">
+      <UniqueIdentifier>{624a5564-07ac-4abf-821a-58833326e51b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Props\Save Point">
+      <UniqueIdentifier>{e7971a06-f7a6-431f-81e8-5d171e6e5710}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Loop\Save System">
+      <UniqueIdentifier>{55580ba7-5f68-4182-a6aa-3a47ca515c10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Management\Object Constructors\Save Point Constructor">
+      <UniqueIdentifier>{c1abb19b-b1dc-4a1a-a40f-5b47a4b16ba8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View">
+      <UniqueIdentifier>{5f110d38-5e26-49de-9e33-5cdd5d8ecf75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Management\Object Lists\Save Point List">
+      <UniqueIdentifier>{05bbfc06-92c1-4d81-b572-22ecf2a490e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Props\Soul">
+      <UniqueIdentifier>{4cc77a13-4b95-4196-ae47-caea120c3b8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Management\Object Constructors\Soul Constructor">
+      <UniqueIdentifier>{4a14d574-04d8-4445-b345-12c30e7ee1e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Management\Object Lists\Soul List">
+      <UniqueIdentifier>{aadb682e-2b8d-49b7-a6e8-a9eeffff49f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rewind\Frame Data\GameObject Rewind Data\Soul Rewind Data">
+      <UniqueIdentifier>{065c63b7-a37c-4853-afe6-a679ad64d81b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Audio\Soul">
+      <UniqueIdentifier>{1ec2603d-1755-4c7f-b8c7-9d643f61fba1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Props\Level Exit">
+      <UniqueIdentifier>{b6e28085-7ac5-4c5b-8229-e6537ec14481}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Management\Object Constructors\Level Exit Placer">
+      <UniqueIdentifier>{7b584fbd-bdfe-40d3-a9e5-bdf909063c71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Particle System\Components">
+      <UniqueIdentifier>{8aa3aa64-6b96-45b1-bad5-9ae29148d3a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Particle System\Generators">
+      <UniqueIdentifier>{ef4d20e6-6ceb-43d1-bd41-3cd79968c5b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Particle System\Updaters">
+      <UniqueIdentifier>{bcbb3fc7-7663-48b0-8c26-217f9332b810}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Observer Subject">
+      <UniqueIdentifier>{c65cf55e-3779-4dcf-a9c2-fcd96a4582e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rewind\Frame Data\Particle Rewind Data">
+      <UniqueIdentifier>{0822a138-2a01-4018-89ac-c3ada89484c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rewind\Frame Data\Camera Rewind Data">
+      <UniqueIdentifier>{39fcd479-0028-4a1c-8dbb-d84b880a971e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Loop\Score">
+      <UniqueIdentifier>{7a480ef9-e4b9-468c-b0e5-c276a31610a7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

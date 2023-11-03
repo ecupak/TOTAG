@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>myGame</ProjectName>
+    <ProjectGuid>{1B482D44-6893-42E7-ADF6-E497E4FCE916}</ProjectGuid>
+    <RootNamespace>Tmpl8</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <!-- Custom section, because microsoft can't keep this organised -->
+  <PropertyGroup>
+    <!-- Note that Platform and Configuration have been flipped around (when compared to the default).
+         This allows precompiled binaries for the choosen $(Platform) to be placed in that directory once,
+         without duplication for Debug/Release. Intermediate files are still placed in the appropriate
+         subdirectory.
+         The debug binary is postfixed with _debug to prevent clashes with it's Release counterpart
+         for the same Platform. -->
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\Output\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\</IntDir>
+    <MultiProcessorCompilation>true</MultiProcessorCompilation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <TargetName>$(ProjectName)_debug</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>lib\MathLibrary\include;template;lib\Json;.;lib\glad;lib\glfw\include;lib\OpenCL\inc;lib\zlib;lib\Audio\inc</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>precomp.h</PrecompiledHeaderFile>
+      <WarningLevel>Level4</WarningLevel>
+      <ExceptionHandling>Sync</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>MathLibrary.lib;Audio.lib;winmm.lib;advapi32.lib;user32.lib;glfw3.lib;gdi32.lib;shell32.lib;OpenCL.lib;OpenGL32.lib;libz-static.lib;Ole32.lib;Cfgmgr32.lib</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <OutputFile>$(TargetPath)</OutputFile>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Platform)'=='x64'">
+    <Link>
+      <AdditionalLibraryDirectories>lib/glfw/lib/$(Platform)/$(Configuration);lib/zlib;lib/OpenCL/lib/$(Platform)/$(Configuration);lib/MathLibrary/lib/$(Platform)/$(Configuration);lib/Audio/lib/$(Platform)/$(Configuration)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Platform)'=='Win32'">
+    <Link>
+      <AdditionalLibraryDirectories>lib/glfw/lib/$(Platform)/$(Configuration);lib/zlib;lib/OpenCL/lib/$(Platform)/$(Configuration);lib/MathLibrary/lib/$(Platform)/$(Configuration)/;lib/Audio/lib/$(Platform)/$(Configuration)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
+    <ClCompile>
+      <!-- NOTE: Only Release-x64 has WIN64 defined... -->
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdcpp17</LanguageStandard>
+      <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdcpp17</LanguageStandard>
+      <OpenMPSupport Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</OpenMPSupport>
+      <OpenMPSupport Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</OpenMPSupport>
+    </ClCompile>
+    <Link>
+      <IgnoreSpecificDefaultLibraries>msvcrt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">xcopy /y /d "lib\MathLibrary\lib\$(Platform)\$(Configuration)\MathLibrary.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">xcopy /y /d "lib\MathLibrary\lib\$(Platform)\$(Configuration)\MathLibrary.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
+    <ClCompile>
+      <Optimization>Full</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <BrowseInformation>
+      </BrowseInformation>
+    </ClCompile>
+    <Link>
+      <IgnoreSpecificDefaultLibraries>LIBCMT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <LinkTimeCodeGeneration>
+      </LinkTimeCodeGeneration>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN64;NDEBUG;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <OpenMPSupport>true</OpenMPSupport>
+    </ClCompile>
+    <PostBuildEvent>
+      <Command>xcopy /y /d "lib\MathLibrary\lib\$(Platform)\$(Configuration)\MathLibrary.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN64;NDEBUG;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <OpenMPSupport>true</OpenMPSupport>
+    </ClCompile>
+    <PostBuildEvent>
+      <Command>xcopy /y /d "lib\MathLibrary\lib\$(Platform)\$(Configuration)\MathLibrary.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <!-- END Custom section -->
+  <ItemGroup>
+    <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="ActorRewindData.cpp" />
+    <ClCompile Include="Archer.cpp" />
+    <ClCompile Include="ArcherAlertState.cpp" />
+    <ClCompile Include="ArcherList.cpp" />
+    <ClCompile Include="ArcherRecoilingState.cpp" />
+    <ClCompile Include="ArcherRewindData.cpp" />
+    <ClCompile Include="ArcherShootingState.cpp" />
+    <ClCompile Include="ArcherStandingState.cpp" />
+    <ClCompile Include="ArcherWalkingState.cpp" />
+    <ClCompile Include="Arrow.cpp" />
+    <ClCompile Include="ArrowRewindData.cpp" />
+    <ClCompile Include="ArrowPool.cpp" />
+    <ClCompile Include="AudioManager.cpp" />
+    <ClCompile Include="CameraRewindData.cpp" />
+    <ClCompile Include="Coin.cpp" />
+    <ClCompile Include="CoinConstructor.cpp" />
+    <ClCompile Include="CoinRewindData.cpp" />
+    <ClCompile Include="CoinList.cpp" />
+    <ClCompile Include="CoinSound.cpp" />
+    <ClCompile Include="Command.cpp" />
+    <ClCompile Include="EndScreenState.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyRewindData.cpp" />
+    <ClCompile Include="EnemyState.cpp" />
+    <ClCompile Include="EnemyStateRewindData.cpp" />
+    <ClCompile Include="Event.cpp" />
+    <ClCompile Include="LevelExit.cpp" />
+    <ClCompile Include="LevelExitPlacer.cpp" />
+    <ClCompile Include="FrameData.cpp" />
+    <ClCompile Include="GameObjectRewindData.cpp" />
+    <ClCompile Include="GameoverState.cpp" />
+    <ClCompile Include="GameRewindData.cpp" />
+    <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="Knight.cpp" />
+    <ClCompile Include="KnightAttackingState.cpp" />
+    <ClCompile Include="KnightConstructor.cpp" />
+    <ClCompile Include="KnightList.cpp" />
+    <ClCompile Include="KnightRecoilState.cpp" />
+    <ClCompile Include="KnightRewindData.cpp" />
+    <ClCompile Include="KnightWalkingState.cpp" />
+    <ClCompile Include="LaunchCommand.cpp" />
+    <ClCompile Include="ClimbCommand.cpp" />
+    <ClCompile Include="ArcherConstructor.cpp" />
+    <ClCompile Include="LevelSound.cpp" />
+    <ClCompile Include="NormalState.cpp" />
+    <ClCompile Include="Observer.cpp" />
+    <ClCompile Include="ParticleRewindData.cpp" />
+    <ClCompile Include="PlayerPlacer.cpp" />
+    <ClCompile Include="PlayerRewindData.cpp" />
+    <ClCompile Include="PlayerState.cpp" />
+    <ClCompile Include="PlayerStateRewindData.cpp" />
+    <ClCompile Include="PlayerSwingingState.cpp" />
+    <ClCompile Include="ObstacleCollisionManager.cpp" />
+    <ClCompile Include="CollisionFinder.cpp" />
+    <ClCompile Include="ColorGenerator.cpp" />
+    <ClCompile Include="ColorUpdater.cpp" />
+    <ClCompile Include="DynamicParticleSystem.cpp" />
+    <ClCompile Include="Hitbox.cpp" />
+    <ClCompile Include="LayerData.cpp" />
+    <ClCompile Include="LifetimeGenerator.cpp" />
+    <ClCompile Include="LifetimeUpdater.cpp" />
+    <ClCompile Include="MapData.cpp" />
+    <ClCompile Include="OriginGenerator.cpp" />
+    <ClCompile Include="ParticleEmitter.cpp" />
+    <ClCompile Include="ParticleGenerator.cpp" />
+    <ClCompile Include="JumpCommand.cpp" />
+    <ClCompile Include="Level.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="ObjectCollisionManager.cpp" />
+    <ClCompile Include="ParticleData.cpp" />
+    <ClCompile Include="ParticleRenderer.cpp" />
+    <ClCompile Include="ParticleSystem.cpp" />
+    <ClCompile Include="ParticleTrasher.cpp" />
+    <ClCompile Include="PixelChecker.cpp" />
+    <ClCompile Include="PlayerClimbingState.cpp" />
+    <ClCompile Include="PlayerCommand.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="KeyboardManager.cpp" />
+    <ClCompile Include="Parser.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerBouncingState.cpp" />
+    <ClCompile Include="PlayerFallingState.cpp" />
+    <ClCompile Include="PlayerJumpingState.cpp" />
+    <ClCompile Include="PlayerRecoilingState.cpp" />
+    <ClCompile Include="PlayerStandingState.cpp" />
+    <ClCompile Include="ObjectData.cpp" />
+    <ClCompile Include="PlayScreenState.cpp" />
+    <ClCompile Include="RewindManager.cpp" />
+    <ClCompile Include="RewindState.cpp" />
+    <ClCompile Include="Rock.cpp" />
+    <ClCompile Include="RockPile.cpp" />
+    <ClCompile Include="RockPileConstructor.cpp" />
+    <ClCompile Include="RockPileRewindData.cpp" />
+    <ClCompile Include="RockPileList.cpp" />
+    <ClCompile Include="RockPileSound.cpp" />
+    <ClCompile Include="RockPool.cpp" />
+    <ClCompile Include="RockRewindData.cpp" />
+    <ClCompile Include="SavePoint.cpp" />
+    <ClCompile Include="SavePointConstructor.cpp" />
+    <ClCompile Include="SavePointList.cpp" />
+    <ClCompile Include="SavePointRewindData.cpp" />
+    <ClCompile Include="SaveSystem.cpp" />
+    <ClCompile Include="Scorekeeper.cpp" />
+    <ClCompile Include="ActorState.cpp" />
+    <ClCompile Include="PlayerWalkingState.cpp" />
+    <ClCompile Include="PlayerZipliningState.cpp" />
+    <ClCompile Include="PositionGenerator.cpp" />
+    <ClCompile Include="PositionUpdater.cpp" />
+    <ClCompile Include="RadianGenerator.cpp" />
+    <ClCompile Include="RadianUpdater.cpp" />
+    <ClCompile Include="Raycaster.cpp" />
+    <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="Shape.cpp" />
+    <ClCompile Include="Soul.cpp" />
+    <ClCompile Include="SoulConstructor.cpp" />
+    <ClCompile Include="SoulList.cpp" />
+    <ClCompile Include="SoulRewindData.cpp" />
+    <ClCompile Include="SoundSound.cpp" />
+    <ClCompile Include="State.cpp" />
+    <ClCompile Include="Subject.cpp" />
+    <ClCompile Include="SwingingRope.cpp" />
+    <ClCompile Include="SwingingRopeConstructor.cpp" />
+    <ClCompile Include="SwingingRopeList.cpp" />
+    <ClCompile Include="SwingingRopeRewindData.cpp" />
+    <ClCompile Include="template\opencl.cpp" />
+    <ClCompile Include="template\opengl.cpp" />
+    <ClCompile Include="template\sprite.cpp" />
+    <ClCompile Include="template\surface.cpp" />
+    <ClCompile Include="template\template.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">precomp.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">precomp.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">precomp.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">precomp.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="template\tmpl8math.cpp" />
+    <ClCompile Include="ParticleUpdater.cpp" />
+    <ClCompile Include="ThrowRockCommand.cpp" />
+    <ClCompile Include="TileCollisionManager.cpp" />
+    <ClCompile Include="TilesetData.cpp" />
+    <ClCompile Include="TitleScreenState.cpp" />
+    <ClCompile Include="Vector2.cpp" />
+    <ClCompile Include="VelocityGenerator.cpp" />
+    <ClCompile Include="MoveCommand.cpp" />
+    <ClCompile Include="VictoryState.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Actor.h" />
+    <ClInclude Include="ActorRewindData.h" />
+    <ClInclude Include="Archer.h" />
+    <ClInclude Include="ArcherAlertState.h" />
+    <ClInclude Include="ArcherList.h" />
+    <ClInclude Include="ArcherRecoilingState.h" />
+    <ClInclude Include="ArcherRewindData.h" />
+    <ClInclude Include="ArcherShootingState.h" />
+    <ClInclude Include="ArcherStandingState.h" />
+    <ClInclude Include="ArcherWalkingState.h" />
+    <ClInclude Include="Arrow.h" />
+    <ClInclude Include="ArrowRewindData.h" />
+    <ClInclude Include="ArrowPool.h" />
+    <ClInclude Include="AudioManager.h" />
+    <ClInclude Include="CameraRewindData.h" />
+    <ClInclude Include="Coin.h" />
+    <ClInclude Include="CoinConstructor.h" />
+    <ClInclude Include="CoinRewindData.h" />
+    <ClInclude Include="CoinList.h" />
+    <ClInclude Include="CoinSound.h" />
+    <ClInclude Include="Command.h" />
+    <ClInclude Include="EndScreenState.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyRewindData.h" />
+    <ClInclude Include="EnemyState.h" />
+    <ClInclude Include="EnemyStateRewindData.h" />
+    <ClInclude Include="Event.h" />
+    <ClInclude Include="LevelExit.h" />
+    <ClInclude Include="LevelExitPlacer.h" />
+    <ClInclude Include="FrameData.h" />
+    <ClInclude Include="GameObjectRewindData.h" />
+    <ClInclude Include="GameoverState.h" />
+    <ClInclude Include="GameRewindData.h" />
+    <ClInclude Include="GameState.h" />
+    <ClInclude Include="Knight.h" />
+    <ClInclude Include="KnightAttackingState.h" />
+    <ClInclude Include="KnightConstructor.h" />
+    <ClInclude Include="KnightList.h" />
+    <ClInclude Include="KnightRecoilState.h" />
+    <ClInclude Include="KnightRewindData.h" />
+    <ClInclude Include="KnightWalkingState.h" />
+    <ClInclude Include="LaunchCommand.h" />
+    <ClInclude Include="ClimbCommand.h" />
+    <ClInclude Include="ArcherConstructor.h" />
+    <ClInclude Include="LevelSound.h" />
+    <ClInclude Include="NormalState.h" />
+    <ClInclude Include="Observer.h" />
+    <ClInclude Include="ParticleRewindData.h" />
+    <ClInclude Include="PlayerPlacer.h" />
+    <ClInclude Include="PlayerRewindData.h" />
+    <ClInclude Include="PlayerState.h" />
+    <ClInclude Include="PlayerStateRewindData.h" />
+    <ClInclude Include="PlayerSwingingState.h" />
+    <ClInclude Include="ObstacleCollisionManager.h" />
+    <ClInclude Include="CollisionFinder.h" />
+    <ClInclude Include="ColorGenerator.h" />
+    <ClInclude Include="ColorUpdater.h" />
+    <ClInclude Include="DynamicParticleSystem.h" />
+    <ClInclude Include="Hitbox.h" />
+    <ClInclude Include="LayerData.h" />
+    <ClInclude Include="LifetimeGenerator.h" />
+    <ClInclude Include="LifetimeUpdater.h" />
+    <ClInclude Include="MapData.h" />
+    <ClInclude Include="OriginGenerator.h" />
+    <ClInclude Include="ParticleEmitter.h" />
+    <ClInclude Include="ParticleGenerator.h" />
+    <ClInclude Include="JumpCommand.h" />
+    <ClInclude Include="Level.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="cl\tools.cl" />
+    <ClInclude Include="ObjectCollisionManager.h" />
+    <ClInclude Include="ParticleData.h" />
+    <ClInclude Include="ParticleRenderer.h" />
+    <ClInclude Include="ParticleSystem.h" />
+    <ClInclude Include="ParticleTrasher.h" />
+    <ClInclude Include="PixelChecker.h" />
+    <ClInclude Include="PlayerClimbingState.h" />
+    <ClInclude Include="PlayerCommand.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="KeyboardManager.h" />
+    <ClInclude Include="Parser.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerBouncingState.h" />
+    <ClInclude Include="PlayerFallingState.h" />
+    <ClInclude Include="PlayerJumpingState.h" />
+    <ClInclude Include="PlayerRecoilingState.h" />
+    <ClInclude Include="PlayerStandingState.h" />
+    <ClInclude Include="ObjectData.h" />
+    <ClInclude Include="PlayScreenState.h" />
+    <ClInclude Include="RewindManager.h" />
+    <ClInclude Include="RewindState.h" />
+    <ClInclude Include="Rock.h" />
+    <ClInclude Include="RockPile.h" />
+    <ClInclude Include="RockPileConstructor.h" />
+    <ClInclude Include="RockPileRewindData.h" />
+    <ClInclude Include="RockPileList.h" />
+    <ClInclude Include="RockPileSound.h" />
+    <ClInclude Include="RockPool.h" />
+    <ClInclude Include="RockRewindData.h" />
+    <ClInclude Include="SavePoint.h" />
+    <ClInclude Include="SavePointConstructor.h" />
+    <ClInclude Include="SavePointList.h" />
+    <ClInclude Include="SavePointRewindData.h" />
+    <ClInclude Include="SaveSystem.h" />
+    <ClInclude Include="Scorekeeper.h" />
+    <ClInclude Include="ActorState.h" />
+    <ClInclude Include="PlayerWalkingState.h" />
+    <ClInclude Include="PlayerZipliningState.h" />
+    <ClInclude Include="PositionGenerator.h" />
+    <ClInclude Include="PositionUpdater.h" />
+    <ClInclude Include="RadianGenerator.h" />
+    <ClInclude Include="RadianUpdater.h" />
+    <ClInclude Include="Raycaster.h" />
+    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="Shape.h" />
+    <ClInclude Include="Soul.h" />
+    <ClInclude Include="SoulConstructor.h" />
+    <ClInclude Include="SoulList.h" />
+    <ClInclude Include="SoulRewindData.h" />
+    <ClInclude Include="SoulSound.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="Subject.h" />
+    <ClInclude Include="SwingingRope.h" />
+    <ClInclude Include="SwingingRopeConstructor.h" />
+    <ClInclude Include="SwingingRopeList.h" />
+    <ClInclude Include="SwingingRopeRewindData.h" />
+    <ClInclude Include="template\common.h" />
+    <ClInclude Include="template\opencl.h" />
+    <ClInclude Include="template\opengl.h" />
+    <ClInclude Include="template\precomp.h" />
+    <ClInclude Include="template\sprite.h" />
+    <ClInclude Include="template\surface.h" />
+    <ClInclude Include="template\tmpl8math.h" />
+    <ClInclude Include="ParticleUpdater.h" />
+    <ClInclude Include="ThrowRockCommand.h" />
+    <ClInclude Include="TileCollision.h" />
+    <ClInclude Include="TileCollisionManager.h" />
+    <ClInclude Include="TilesetData.h" />
+    <ClInclude Include="TitleScreenState.h" />
+    <ClInclude Include="Vector2.h" />
+    <ClInclude Include="VelocityGenerator.h" />
+    <ClInclude Include="MoveCommand.h" />
+    <ClInclude Include="VictoryState.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cl\kernels.cl" />
+    <None Include="README.md" />
+    <None Include="template\LICENSE" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
