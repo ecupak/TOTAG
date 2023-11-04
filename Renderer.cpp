@@ -45,9 +45,9 @@ void Renderer::RenderView(const int activeCount)
 	// Draw furthest away to closest.
 	
 	// ... Far/Mid/Near BG
-	DrawParallaxLayer(initialTilePosition, cameraStart, cameraEnd, Layer::FarBG);
-	DrawParallaxLayer(initialTilePosition, cameraStart, cameraEnd, Layer::MidBG);
-	DrawParallaxLayer(initialTilePosition, cameraStart, cameraEnd, Layer::NearBG);
+	DrawParallaxLayer(cameraStart, Layer::FarBG);
+	DrawParallaxLayer(cameraStart, Layer::MidBG);
+	DrawParallaxLayer(cameraStart, Layer::NearBG);
 
 	// ... Low/Mid doodad.
 	DrawLayer(initialTilePosition, cameraStart, cameraEnd, Layer::LowDoodad);
@@ -90,7 +90,7 @@ void Renderer::PrintValue(const char* label, const int value, const int x, const
 
 // PRIVATE METHODS
 
-void Renderer::DrawParallaxLayer(const int2& start, const float2& cameraStart, const float2& cameraEnd, const Layer layer)
+void Renderer::DrawParallaxLayer(const int2& cameraStart, const Layer layer)
 {
 	// Parallax.y is anchored to the bottom of the map.
 	int mapHeight{ layerData_.GetTileSize().y * TILE_HEIGHT };
@@ -100,24 +100,24 @@ void Renderer::DrawParallaxLayer(const int2& start, const float2& cameraStart, c
 	// Find position of parallax camera.
 	const float2& parallaxSpeed{ layerData_.GetParallaxSpeed(layer) };
 
-	float2 parallaxCameraStart{
-		cameraStart.x * parallaxSpeed.x,
-		anchorPoint - (distanceAboveAnchorPoint * parallaxSpeed.y)
+	int2 parallaxCameraStart{
+		static_cast<int>(cameraStart.x * parallaxSpeed.x),
+		static_cast<int>(anchorPoint - (distanceAboveAnchorPoint * parallaxSpeed.y))
 	};
 
-	float2 parallaxCameraEnd{
-		parallaxCameraStart.x + (camera_.shape_->size_.x - (2.0f * camera_.margin_.x)),
-		parallaxCameraStart.y + (camera_.shape_->size_.y - (2.0f * camera_.margin_.y))
+	int2 parallaxCameraEnd{
+		static_cast<int>(parallaxCameraStart.x + (camera_.shape_->size_.x - (2.0f * camera_.margin_.x))),
+		static_cast<int>(parallaxCameraStart.y + (camera_.shape_->size_.y - (2.0f * camera_.margin_.y)))
 	};
 
 	// Precalculate the first tile-in-view's origin.
-	int2 initialParallaxTilePosition{ static_cast<int>(parallaxCameraStart.x / TILE_WIDTH) * TILE_WIDTH, static_cast<int>(parallaxCameraStart.y / TILE_HEIGHT) * TILE_HEIGHT };
+	int2 initialParallaxTilePosition{ parallaxCameraStart.x / TILE_WIDTH * TILE_WIDTH, parallaxCameraStart.y / TILE_HEIGHT * TILE_HEIGHT };
 
 	DrawLayer(initialParallaxTilePosition, parallaxCameraStart, parallaxCameraEnd, layer);
 }
 
 
-void Renderer::DrawLayer(const int2& start, const float2& cameraStart, const float2& cameraEnd, const Layer layer)
+void Renderer::DrawLayer(const int2& start, const int2& cameraStart, const int2& cameraEnd, const Layer layer)
 {
 	// Find column/row of start (row/y will be unused). Advance layerid array to the starting row.
 	int2 arrayPosStart{ start.x / TILE_WIDTH, start.y / TILE_HEIGHT };
@@ -155,7 +155,7 @@ void Renderer::DrawTile(const int2& screenPos, const int tileId)
 
 
 // Render enemies, coins, and dynamic environmental objects. The object CM already has marked what should be drawn as 'onstage'.
-void Renderer::DrawDynamicObjects(const int2& start, const float2& cameraStart, const float2& cameraEnd, const int activeCount)
+void Renderer::DrawDynamicObjects(const int2& start, const int2& cameraStart, const int2& cameraEnd, const int activeCount)
 {
 	for (int index{ 0 }; index < activeCount; ++index)
 	{
@@ -166,7 +166,7 @@ void Renderer::DrawDynamicObjects(const int2& start, const float2& cameraStart, 
 			int2 screenPos{	// Offset by the camera's position.
 				static_cast<int>(object->shape_->start_.x) - cameraStart.x,
 				static_cast<int>(object->shape_->start_.y) - cameraStart.y
-			};			
+			};
 
 			object->Draw(stage_, screenPos.x, screenPos.y);
 		}

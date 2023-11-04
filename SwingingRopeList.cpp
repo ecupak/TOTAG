@@ -29,6 +29,8 @@ SwingingRope* SwingingRopeList::Create(float2 startTileToCenterOn)
 		ropes_[currentPoolIndex_++].Init(startTileToCenterOn);
 		return &ropes_[currentPoolIndex_ - 1];
 	}
+
+	return nullptr;
 }
 
 

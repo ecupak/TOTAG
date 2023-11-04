@@ -20,12 +20,12 @@ public:
 
 
 private:
-	void DrawParallaxLayer(const int2& start, const float2& cameraStart, const float2& cameraEnd, const Layer layer);
-	void DrawLayer(const int2& start, const float2& cameraStart, const float2& cameraEnd, const Layer layer);
+	void DrawParallaxLayer(const int2& cameraStart, const Layer layer);
+	void DrawLayer(const int2& start, const int2& cameraStart, const int2& cameraEnd, const Layer layer);
 	
 	void DrawTile(const int2& screenPos, const int tileId);
 
-	void DrawDynamicObjects(const int2& start, const float2& cameraStart, const float2& cameraEnd, const int activeCount);
+	void DrawDynamicObjects(const int2& start, const int2& cameraStart, const int2& cameraEnd, const int activeCount);
 
 	void PrintValue(const char* label, const int value, const int x, const int y, const int scaling);
 

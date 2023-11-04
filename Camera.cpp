@@ -171,7 +171,7 @@ void Camera::Resume(CameraRewindData& rewindData)
 }
 
 
-void Camera::OnNotify(const ObjectClass objectClass, const Event event)
+void Camera::OnNotify(const ObjectClass, const Event event)
 {
 	if (event == Event::OnTouch)
 	{

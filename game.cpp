@@ -683,7 +683,7 @@ void Game::RenderGame(const float deltaTime, const bool isRewindStep)
 
 	// Draw view at 16x16 resolution onto stage.
 	renderer_->RenderView(activeListCurrentIndex_);
-	particleSystem_->Render(stagingSprite_.GetSurface(), camera_->shape_->start_.x + camera_->margin_.x, camera_->shape_->start_.y + camera_->margin_.y);
+	particleSystem_->Render(stagingSprite_.GetSurface(), static_cast<int>(camera_->shape_->start_.x) + camera_->margin_.x, static_cast<int>(camera_->shape_->start_.y) + camera_->margin_.y);
 
 	// Draw scaled to main screen.	
 	stagingSprite_.DrawSectionScaled(0, 0, static_cast<int>(camera_->shape_->size_.x - (2 * camera_->margin_.x)), static_cast<int>(camera_->shape_->size_.y - (2 * camera_->margin_.y)),

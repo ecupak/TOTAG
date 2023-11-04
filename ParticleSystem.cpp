@@ -103,12 +103,12 @@ void ParticleSystem::Render(Surface* screen, int xOffset, int yOffset)
 {
 	if (isActive_)
 	{
-		pRenderer_->Draw(screen, position_.x - xOffset, position_.y - yOffset, pData_, color_);
+		pRenderer_->Draw(screen, static_cast<int>(position_.x) - xOffset, static_cast<int>(position_.y) - yOffset, pData_, color_);
 	}
 }
 
 
-void ParticleSystem::OnNotify(const ObjectClass objectClass, const Event event)
+void ParticleSystem::OnNotify(const ObjectClass, const Event event)
 {
 	if (event == Event::OnTouch)
 	{

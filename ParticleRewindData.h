@@ -6,7 +6,7 @@ struct ParticleRewindData
 	~ParticleRewindData();
 
 
-	int countAlive_{ 0 };
+	size_t countAlive_{ 0 };
 
 	uint color_{ 0 };
 
