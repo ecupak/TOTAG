@@ -1,0 +1,200 @@
+Raycast for player collision resolve.
+
+Parametric line equation:
+P -> Q is the ray (P is a float2 point, Q is a float2 velocity).
+D = (Q - P) and is our direction (not normalized).
+
+A point along the direction is calculated like: P(t) = P + Dt
+- Treat t like time even though it isn't.
+- t = 0 returns P. t = 1 = Q.
+- t can be negative or larger than 1.
+
+Every rectangle needs 2 positions: a float2 start (top left corner) and a float2 end (bottom right corner).
+
+Our ray will intersect a rectangle at 2 locations (entering and exiting)
+- near and far collisions.
+
+Find the x and y component of the near and far collisions:
+1. Pretend to extend the rectangle sides infinitely long.
+2. P + D(t) => we must find t
+3. Near tx is distance from P.x to start.x divided by direction.x (near.x)
+4. Repeat for near.y
+5. Far tx is distance from P.x to end.x divided by direction x (far.x)
+6. Repeat for far.y
+
+Rules for collision to be true:
+1. Nx <  Fy
+2. Ny < Fx
+
+We should also sort the near and far components to be sensible to the origin's perspective.
+- Maybe add a swap to our custom vec struct: a = a + b; b = a - b; a = a - b;
+
+And this observation is always true.
+1. tNear = Max(Nx, Ny)
+2. tFar = Min(Fx, Fy)
+
+Possibly will need to create own vector struct so we can apply same calculations to both components at once.
+
+Example method:
+bool RayVsRect(const vec& rayOrigin, const vec& rayDirection, const rect& target);
+- In my game rect will be Shape which every GameObject has.
+- rayOrigin is P (which is player.shape_.start)
+- rayDirection is velocity
+{
+	// Find distance from obstacle corner to player start of ray.
+	// Divide by total distance wanting to travel to get % along rayDirection.
+	// Can plug this into P(t) = P + D(t) to get position along rayDirection that collision occured.
+	vec tNear = (target.start - rayOrigin) / rayDirection;
+	vec tFar = (target.end - rayOrigin) / rayDirection;
+
+	if (tNear.x > tNear.y) { /* swap them */ }
+	if (tFar.x > tFar.y) { /* swap them */ }
+
+	// Apply rules of collision here.
+	if (tNear.x > tFar.y || tNear.y > tFar.x) { return false; }
+	
+	// Find the actual entry and exit points on each axis.
+	float tHitNear = max(tNear.x, tNear.y);
+	float tHitFar = min(tFar.x, tFar.y);
+
+	// Ignore if entire collision happens behind origin (if far is negative that means everything went backwards).
+	if (tHitFar < 0) { return false; }
+
+	// Ignore if collision starts after our rayDirection.
+	if (tHitNear > 1.0f) { return false; }
+
+	/*
+	Now we can plug tHitNear and tHitFar into P(t) = P + D(t) to get the entry and exit float2 positions.
+	*/	
+}
+
+
+We can construct a normal from the surface we hit.
+- Whichever near component is greater is the one that hit last and is the one that actually contacted the surface
+- If that component was positive, then the normal is facing left or up.
+- If that component was negative, then the normal is facing right or down.
+
+
+Extended example method:
+bool RayVsRect( /* add these */ vec& contactPoint, vec& contactNormal, float& timeToContact);
+- contactPoint is the position we hit the obstacle at.
+- contactNormal is the direction the normal from the contactPoint is facing.
+- timeToContact is the tHitNear value used.
+- These 2 values will be returned out of the method, like a Unity Raycast method or a C out parameter.
+{
+	// Replace tHitNear with timeToContact parameter name.
+	/*float*/ timeToContact = max(tNear.x, tNear.y);
+
+	// Find point on obstacle we made contact at.
+	contactPoint = rayOrigin + (tHitNear * rayDirection);
+
+	// Get normal. Normals are {0, 1} down, {0, -1} up, {1, 0} right, {-1, 0} left.	
+	// If we hit a vertical side last it is the contact point.
+	if (tNear.x > tNear.y)
+	{
+		// .. and if we were headed to the right, the normal is to the left and vice versa.
+		if (rayDirection.x > 0
+			contactNormal = {-1, 0};
+		else
+			contactNormal = {1, 0};
+	}
+	// We hit a horizontal side first.
+	else
+	{
+		// .. and if we were headed down, the normal is up and vice versa.
+		if (rayDirection.y > 0)
+			contactNormal = {0, -1};
+		else
+			contactNormal = {0, 1};
+	}
+}
+
+
+Example use of the method:
+- We use "&& t <= 1.0f" so we don't pick up any collisions beyond our rayDirection.
+- I think we can probably put this check into our RayVsRect method instead (applied in earlier example method).
+if (RayVsRect(parameters...) && t <= 1.0f)
+{
+	// resolve collision here.
+}
+
+
+To properly set player next to obstacle collided with, we need the contact point to be half the width of our player away from the obstacle.
+But we need this to be along the ray direction. So we must adjust target.start by -(player.width/2) and target.end by +(player.width/2).
+
+
+Example method with a moving object/player:
+bool DynamicRectVsRect(const rect& moving, const rect& target, vec& contactPoint, vec& contactNormal, float& timeToContact, float deltaTime);
+- Can get rayOrigin and rayDirection from moving rect passed in.
+- Need deltaTime to modify velocity values.
+{
+	// If not moving, then you can get into any trouble.
+	if (moving.velocity == 0) { return false; }
+
+	// Expand our target boundary here so we snap to correct position on collision.
+	GameObject extendedObject;
+	extendedObject.start = target.start - moving.size/2;
+	extendedObject.end = target.start + target.size + moving.size - 1;
+
+	// Call original method. 
+	if (RayVsRect(moving.center, velocity * deltaTime , const rect& extendedObject, contactPoint, contactNormal, timeToContact))
+	{
+		return true;
+	}
+
+	return false;
+}
+
+
+Handling collision:
+- reduce velocity of moving object by an amount to keep it at surface of obstacle.
+- use the contact normal for this so it will only affect the x,y component that is causing penetration.
+{
+	// I think we can replace rhs expression with contactNormal dot player.velocity.
+	// The CN will zero-out the non-offending component.
+	// The (1 - time) expression returns a percentage that is the amount of velocity to be removed.
+	// Thus if it is evaluates to 1, we remove all velocity (touching obstacle). If it evaluates to 0.5 we lose half velocity, etc.
+	player.velocity += contactNormal * (abs(player.velocity)) * (1.0f - timeToContact);
+}
+
+
+There is a divide by zero possibility. If rayDirection is 0 because we are not moving, we need to exit early because:
+- If the numerator is not zero, we get infinity. That is ok and used in calculations.
+- If the numerator is 0 (like velocity is 0), we get an error value. That is not ok.
+{
+	vec tNear = (target.start - rayOrigin) / rayDirection;
+	vec tFar = (target.end - rayOrigin) / rayDirection;	
+	
+	// Return no collision if we get an error value.
+	if (NAN(tNear.x) || NAN(tNear.y)) return false;
+	if (NAN(tFar.x) || NAN(tFar.y)) return false;
+	
+	// continue...
+}
+
+
+=== 
+
+My game implementation
+
+===
+
+Because being directly adjacent to an object counts as collision in my game, t(x, y) is:
+float diff = rect.position.(x,y) - player.position.(x,y);
+(diff + (diff < 0 ? 1 : -1)) / direction.(x,y)
+
+Player will 1st create box at destination. Then draw a larger box (player obstacle box) around self and destination box.
+
+During collision manager check compare player obstacle box with obstacles. It will be a separate object in the goPool_.
+- the player obstacle box will keep a list of GameObject* obstacles it has collided with that frame.
+
+Then the collision manager will tell all collision objects to resolve their collisions instead of doing it at the same time that collisions are found.
+
+Each object will be raycasted against and TimeToContact will be stored in array.
+
+Then we sort by timeToContact and apply those raycast results to player.
+
+Empty the player obstacle box list of collisions.
+
+
+

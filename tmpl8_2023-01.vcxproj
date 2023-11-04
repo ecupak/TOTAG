@@ -237,6 +237,7 @@
     <ClCompile Include="KeyboardManager.cpp" />
     <ClCompile Include="Parser.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="ObjectPooler.cpp" />
     <ClCompile Include="PlayerBouncingState.cpp" />
     <ClCompile Include="PlayerFallingState.cpp" />
     <ClCompile Include="PlayerJumpingState.cpp" />
@@ -390,6 +391,7 @@
     <ClInclude Include="KeyboardManager.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="ObjectPooler.h" />
     <ClInclude Include="PlayerBouncingState.h" />
     <ClInclude Include="PlayerFallingState.h" />
     <ClInclude Include="PlayerJumpingState.h" />
@@ -447,6 +449,7 @@
     <ClInclude Include="TileCollisionManager.h" />
     <ClInclude Include="TilesetData.h" />
     <ClInclude Include="TitleScreenState.h" />
+    <ClInclude Include="Vector.h" />
     <ClInclude Include="Vector2.h" />
     <ClInclude Include="VelocityGenerator.h" />
     <ClInclude Include="MoveCommand.h" />

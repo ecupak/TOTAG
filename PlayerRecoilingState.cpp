@@ -9,7 +9,6 @@
 
 #include "KeyboardManager.h"
 #include "TileCollision.h"
-#include "Utility.h"
 #include "Vector2.h"
 
 #include "PlayerStateRewindData.h"

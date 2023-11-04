@@ -19,6 +19,9 @@
     <ClCompile Include="template\tmpl8math.cpp">
       <Filter>template</Filter>
     </ClCompile>
+    <ClCompile Include="ObjectPooler.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Game Loop</Filter>
     </ClCompile>
@@ -245,7 +248,7 @@
       <Filter>Object Management\Object Constructors\Player Placer</Filter>
     </ClCompile>
     <ClCompile Include="Scorekeeper.cpp">
-      <Filter>Game Loop\Score</Filter>
+      <Filter>Object Management\Score</Filter>
     </ClCompile>
     <ClCompile Include="RockPile.cpp">
       <Filter>GameObjects\Props\Rock Pile</Filter>
@@ -449,6 +452,12 @@
     </ClInclude>
     <ClInclude Include="template\tmpl8math.h">
       <Filter>template</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectPooler.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Helpers</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Game Loop</Filter>
@@ -679,7 +688,7 @@
       <Filter>Object Management\Object Constructors\Player Placer</Filter>
     </ClInclude>
     <ClInclude Include="Scorekeeper.h">
-      <Filter>Game Loop\Score</Filter>
+      <Filter>Object Management\Score</Filter>
     </ClInclude>
     <ClInclude Include="RockPile.h">
       <Filter>GameObjects\Props\Rock Pile</Filter>
@@ -943,6 +952,9 @@
     <Filter Include="Object Management\Object Constructors\Player Placer">
       <UniqueIdentifier>{0738c0de-341d-4ba9-a7b4-e670890a4e3d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object Management\Score">
+      <UniqueIdentifier>{7a480ef9-e4b9-468c-b0e5-c276a31610a7}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Object Management\Object Lists\Rock Pile List">
       <UniqueIdentifier>{ef0ea30d-c52a-48a0-9dba-4636b2560111}</UniqueIdentifier>
     </Filter>
@@ -1185,9 +1197,6 @@
     </Filter>
     <Filter Include="Rewind\Frame Data\Camera Rewind Data">
       <UniqueIdentifier>{39fcd479-0028-4a1c-8dbb-d84b880a971e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game Loop\Score">
-      <UniqueIdentifier>{7a480ef9-e4b9-468c-b0e5-c276a31610a7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

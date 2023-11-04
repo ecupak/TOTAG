@@ -1,0 +1,16 @@
+Fix warnings from tmpl8
+
+
+make slide about recoil state and jumping from swinging rope (with normalized vector mentions).
+make slide about sliding down rope (with lerp mentions)
+update slide about angles for swining rope
+
+make slide about keeping avatar centered on rope
+
+make slide about momentum
+
+AABB/point, AABB/circle research?
+
+get image of AABB point and vs AABB objects code
+
+image of early-out pixel perfect code

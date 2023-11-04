@@ -61,7 +61,8 @@ using namespace std;
 // custom data type
 #include "Vector2.h"
 
-// library
+// libraries
+#include "MathLibrary.h"
 #include "json.hpp"
 #include <Audio/Sound.hpp>
 
@@ -86,10 +87,6 @@ using namespace std;
 #include "ParticleUpdater.h"
 
 #include "Observer.h"
-
-
-// custom math library
-#include "MathLibrary.h"
 
 // namespaces
 using namespace Tmpl8;

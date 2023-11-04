@@ -28,18 +28,19 @@ void Renderer::RenderView(const int activeCount)
 	// Note that camera bounds are extended beyond the screen by margin.
 	// This was to allow enemies and objects just offscreen to be "touched" and get
 	// to update. Possibly will remove as collision will change.
-	float2 cameraStart{
-		camera_.shape_->start_.x + camera_.margin_.x,
-		camera_.shape_->start_.y + camera_.margin_.y
+	int2 cameraStart{
+		static_cast<int>(floorf(camera_.shape_->start_.x) + camera_.margin_.x),
+		static_cast<int>(floorf(camera_.shape_->start_.y) + camera_.margin_.y)
 	};
 
-	float2 cameraEnd{
-		camera_.shape_->end_.x - camera_.margin_.x + 1,
-		camera_.shape_->end_.y - camera_.margin_.y + 1
+	int2 cameraEnd{
+		static_cast<int>(floorf(camera_.shape_->end_.x) - camera_.margin_.x + 1),
+		static_cast<int>(floorf(camera_.shape_->end_.y) - camera_.margin_.y + 1)
 	};
+
 
 	// Get the top-left tile being overlapped. Find it's world position/origin. Now in all subsequent loops, advance by tilesize until beyond the camera's x/y end.
-	int2 initialTilePosition{ static_cast<int>(cameraStart.x / TILE_WIDTH) * TILE_WIDTH, static_cast<int>(cameraStart.y / TILE_HEIGHT) * TILE_HEIGHT };
+	int2 initialTilePosition{ cameraStart.x / TILE_WIDTH * TILE_WIDTH, cameraStart.y / TILE_HEIGHT * TILE_HEIGHT };
 
 	// Draw furthest away to closest.
 	
@@ -149,19 +150,6 @@ void Renderer::DrawTile(const int2& screenPos, const int tileId)
 	{
 		tileset_.SetFrame(tileId);
 		tileset_.Draw(stage_, screenPos.x, screenPos.y);
-
-		/*for (int i = 0; i < tileset_.Frames(); ++i)
-		{
-			for (int y = 0; y < TILE_HEIGHT; ++y)
-			{
-				if (tileset_.start[i][y] > TILE_WIDTH)
-				{
-					int x = 3;
-				}
-			}
-		}*/
-
-		//stage_->Box(screenPos.x, screenPos.y, screenPos.x + 15, screenPos.y + 15, 0);
 	}
 }
 
@@ -169,42 +157,16 @@ void Renderer::DrawTile(const int2& screenPos, const int tileId)
 // Render enemies, coins, and dynamic environmental objects. The object CM already has marked what should be drawn as 'onstage'.
 void Renderer::DrawDynamicObjects(const int2& start, const float2& cameraStart, const float2& cameraEnd, const int activeCount)
 {
-	int2 cameraFloored{
-		static_cast<int>(floorf(camera_.shape_->start_.x) + camera_.margin_.x),
-		static_cast<int>(floorf(camera_.shape_->start_.y) + camera_.margin_.y)
-	};
-
 	for (int index{ 0 }; index < activeCount; ++index)
 	{
 		GameObject* const object{ activeList_[index] };
 
 		if (object->isOnstage_)
-		{	/*				
+		{			
 			int2 screenPos{	// Offset by the camera's position.
-				static_cast<int>(object->shape_->start_.x) - cameraFloored.x,
-				static_cast<int>(object->shape_->start_.y) - cameraFloored.y
-			};
-			*/
-			
-			int2 screenPos{	// Offset by the camera's position.
-				static_cast<int>(object->shape_->start_.x - cameraStart.x),
-				static_cast<int>(object->shape_->start_.y - cameraStart.y)
-			};
-					
-			/*
-			if (object->objectLayer_ & ObjectId::Player)
-			{
-				std::cout << std::fixed;
-				std::cout << std::setprecision(8);
-				std::cout << "fPos: " << object->shape_->start_.x
-					<< " - fCam: " << cameraStart.x
-					<< " = " << object->shape_->start_.x - cameraStart.x
-					<< '\n'
-					<< "iPos: " << static_cast<int>(object->shape_->start_.x)
-					<< " - floorCam: " << cameraFloored.x
-					<< " = (int)" << screenPos.x << '\n' << '\n';
-			}
-			*/
+				static_cast<int>(object->shape_->start_.x) - cameraStart.x,
+				static_cast<int>(object->shape_->start_.y) - cameraStart.y
+			};			
 
 			object->Draw(stage_, screenPos.x, screenPos.y);
 		}

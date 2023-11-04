@@ -14,7 +14,6 @@
 #include "LaunchCommand.h"
 
 #include "KeyboardManager.h"
-#include "Utility.h"
 #include "Vector2.h"
 
 #include "PlayerStateRewindData.h"

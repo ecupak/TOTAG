@@ -153,7 +153,7 @@ void Game::Init()
 	InitCollisionManagers();
 	InitRenderer();
 	
-	level_->onLevelStart_->AddObserver(audioManager_);
+	//level_->onLevelStart_->AddObserver(audioManager_);
 
 	// Initial game state.
 	state_ = new TitleScreenState{ *this };

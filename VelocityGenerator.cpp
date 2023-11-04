@@ -5,7 +5,6 @@
 #include "VelocityGenerator.h"
 
 #include "ParticleData.h"
-#include "Utility.h"
 
 
 void VelocityGenerator::Generate(float, ParticleData* pData, size_t startId, size_t endId)
