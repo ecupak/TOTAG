@@ -8,7 +8,17 @@
 #include "Subject.h"
 
 
-SwingingRopeConstructor::SwingingRopeConstructor() {}
+SwingingRopeConstructor::SwingingRopeConstructor() 
+	: sharedSprite_{ new Sprite{
+		new Surface{ static_cast<int>(SwingingRope::GetSharedSurfaceSize().x), static_cast<int>(SwingingRope::GetSharedSurfaceSize().y) },
+		1, 1} }
+{	}
+
+
+SwingingRopeConstructor::~SwingingRopeConstructor()
+{
+	delete sharedSprite_;
+}
 
 
 const int SwingingRopeConstructor::Construct(SwingingRopeList& list, const ObjectData& objectData, Observer* observer)
@@ -39,7 +49,7 @@ const int SwingingRopeConstructor::Construct(SwingingRopeList& list, const Objec
 	// Create each object in the list.
 	for (int index{ 0 }; index < positionsCurrentIndex_; ++index)
 	{
-		SwingingRope* newRope{ list.Create({ 1.0f * positions[index].x * TILE_WIDTH, 1.0f * positions[index].y * TILE_HEIGHT }, &sharedSprite_) };
+		SwingingRope* newRope{ list.Create({ 1.0f * positions[index].x * TILE_WIDTH, 1.0f * positions[index].y * TILE_HEIGHT }, sharedSprite_) };
 
 		if (newRope != nullptr)
 		{

@@ -9,9 +9,13 @@ class SwingingRopeConstructor
 {
 public:
 	SwingingRopeConstructor();
+	SwingingRopeConstructor(const SwingingRopeConstructor& other) = delete;
+	SwingingRopeConstructor& operator=(const SwingingRopeConstructor& other) = delete;
+	~SwingingRopeConstructor();
+
 
 	const int Construct(SwingingRopeList& list, const ObjectData& objectData, Observer* observer);
 
 private:
-	Sprite sharedSprite_{ new Surface{static_cast<int>(SwingingRope::GetSharedSurfaceSize().x), static_cast<int>(SwingingRope::GetSharedSurfaceSize().y)}, 1, 1};
+	Sprite* sharedSprite_{ nullptr };
 };

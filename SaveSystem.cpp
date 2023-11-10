@@ -22,6 +22,7 @@
 #include "RockPileRewindData.h"
 #include "SavePointRewindData.h"
 #include "ParticleRewindData.h"
+#include "CameraRewindData.h"
 
 #include "GameRewindData.h"
 
@@ -52,6 +53,8 @@ void SaveSystem::SaveData()
 	SaveRockPileData(data["rockPiles"]);
 	SaveSavePointData(data["savePoints"]);
 	SaveParticleData(data["particles"]);
+	SaveCameraData(data["camera"]);
+
 	SaveGameData(data["game"]);
 
 	// Output save file.
@@ -76,6 +79,8 @@ const bool SaveSystem::LoadData()
 	LoadRockPileData(saveData_["rockPiles"]);
 	LoadSavePointData(saveData_["savePoints"]);
 	LoadParticleData(saveData_["particles"]);
+	LoadCameraData(saveData_["camera"]);
+
 	LoadGameData(saveData_["game"]);
 
 	return true;
@@ -327,6 +332,15 @@ void SaveSystem::SaveParticleData(json& saveData)
 }
 
 
+void SaveSystem::SaveCameraData(json& saveData)
+{
+	saveData["currentZoom"] = rewinder_.GetCameraRewindData()->zoomLevel_;
+	saveData["startZoom"] = rewinder_.GetCameraRewindData()->startZoomLevel_;
+	saveData["finalZoom"] = rewinder_.GetCameraRewindData()->finalZoomLevel_;
+	saveData["elapsedZoomTime"] = rewinder_.GetCameraRewindData()->elapsedZoomTime_;
+}
+
+
 void SaveSystem::SaveGameData(json& saveData)
 {
 	GameRewindData& rewindData{ *rewinder_.GetGameRewindData() };
@@ -552,6 +566,15 @@ void SaveSystem::LoadSavePointData(json& saveData)
 void SaveSystem::LoadParticleData(json& saveData)
 {
 	rewinder_.GetParticleRewindData()->color_ = saveData["color"];
+}
+
+
+void SaveSystem::LoadCameraData(json& saveData)
+{
+	rewinder_.GetCameraRewindData()->zoomLevel_ = saveData["currentZoom"];
+	rewinder_.GetCameraRewindData()->startZoomLevel_ = saveData["startZoom"];
+	rewinder_.GetCameraRewindData()->finalZoomLevel_ = saveData["finalZoom"];
+	rewinder_.GetCameraRewindData()->elapsedZoomTime_ = saveData["elapsedZoomTime"];
 }
 
 

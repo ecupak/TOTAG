@@ -13,6 +13,7 @@ struct RockRewindData;
 struct RockPileRewindData;
 struct SavePointRewindData;
 struct ParticleRewindData;
+struct CameraRewindData;
 struct GameRewindData;
 
 struct PlayerStateRewindData;
@@ -58,6 +59,7 @@ private:
 	void SaveSavePointData(json& saveData);
 	void SaveParticleData(json& saveData);
 	void SaveGameData(json& saveData);
+	void SaveCameraData(json& saveData);
 
 	void SaveActorData(ActorRewindData& rewindData, json& saveData);
 	void SaveGameObjectData(GameObjectRewindData& rewindData, json& saveData);
@@ -80,6 +82,7 @@ private:
 	void LoadSavePointData(json& saveData);
 	void LoadParticleData(json& saveData);
 	void LoadGameData(json& saveData);
+	void LoadCameraData(json& saveData);
 
 	void LoadActorData(ActorRewindData& rewindData, json& saveData);
 	void LoadGameObjectData(GameObjectRewindData& rewindData, json& saveData);
