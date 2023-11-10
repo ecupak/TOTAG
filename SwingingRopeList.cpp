@@ -22,11 +22,11 @@ void SwingingRopeList::Initialize(const int size)
 }
 
 
-SwingingRope* SwingingRopeList::Create(float2 startTileToCenterOn)
+SwingingRope* SwingingRopeList::Create(float2 startTileToCenterOn, Sprite* sharedSprite)
 {
 	if (currentPoolIndex_ < capacity_)
 	{
-		ropes_[currentPoolIndex_++].Init(startTileToCenterOn);
+		ropes_[currentPoolIndex_++].Init(startTileToCenterOn, sharedSprite);
 		return &ropes_[currentPoolIndex_ - 1];
 	}
 

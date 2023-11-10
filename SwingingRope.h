@@ -12,7 +12,7 @@ public:
 	~SwingingRope();
 
 
-	void Init(const float2 startTileToCenterOn);
+	void Init(const float2 startTileToCenterOn, Sprite* sharedSprite);
 
 
 	void Update(float deltaTime);
@@ -42,6 +42,8 @@ public:
 	Subject* onPassengerChange_{ nullptr };
 
 
+	static const float2& GetSharedSurfaceSize();
+
 private:
 	void UpdateNodes();
 
@@ -59,9 +61,8 @@ private:
 	// Use Bezier curve to generate points guided by the node path.
 	ec::float2 points_[pointCount_]{ 0, 0 };
 
-	// Shared surface all swining ropes can draw to if they need to do a pixel check.
-	static float2 size_;
-	static Sprite* sharedSprite_;
+	// Full size the swinging rope can occupy. Used to created the shared surface the rope draws to during collision checks.
+	static float2 sharedSurfaceSize_;
 
 	bool hasPassenger_{ false };
 };

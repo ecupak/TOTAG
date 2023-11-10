@@ -14,33 +14,36 @@
 
 
 // Shared resources for all rope objects.
-float2 SwingingRope::size_{ 5.4f * TILE_WIDTH, 3.0f * TILE_HEIGHT };
-Sprite* SwingingRope::sharedSprite_{ new Sprite{ new Surface{static_cast<int>(size_.x), static_cast<int>(size_.y)}, 1, 1} };
+float2 SwingingRope::sharedSurfaceSize_{ 5.4f * TILE_WIDTH, 3.0f * TILE_HEIGHT };
+
+
+const float2& SwingingRope::GetSharedSurfaceSize()
+{
+	return sharedSurfaceSize_;
+}
 
 
 SwingingRope::SwingingRope()
 	: GameObject{ ObjectClass::Rope, ObjectType::Prop, 0, 0, ObjectId::Rope, ObjectId::Player }
 	, onPassengerChange_{ new Subject{} }
 {
-	shape_->size_ = size_;
+	shape_->size_ = sharedSurfaceSize_;
 
-	// Set base sprite to shared swinging rope sprite.
-	// Will draw to this using PrepareSprite() before any pixel checks.
-	sprite_ = sharedSprite_;	
 }
 
 
 SwingingRope::~SwingingRope()
 {
-	delete sharedSprite_;
-	sharedSprite_ = nullptr;
-
 	delete onPassengerChange_;
 }
 
 
-void SwingingRope::Init(const float2 startTileToCenterOn)
+void SwingingRope::Init(const float2 startTileToCenterOn, Sprite* sharedSprite)
 {
+	// Set base sprite to shared swinging rope sprite.
+	// Will draw to this using PrepareSprite() before any pixel checks.
+	sprite_ = sharedSprite;
+
 	// Adjust start so the object's sprite is horizontally centered in the intended tile and its top is aligned with the top of the tile.
 	float2 offset{
 		(shape_->size_.x - TILE_WIDTH) * 0.5f,
@@ -55,8 +58,8 @@ void SwingingRope::Init(const float2 startTileToCenterOn)
 	shape_->SetPosition(anchorPoint);
 
 	// First node and first point are the anchor points.
-	nodes_[0] = ec::float2{ size_.x * 0.5f, 0.0f };
-	points_[0] = ec::float2{ size_.x * 0.5f, 0.0f };
+	nodes_[0] = ec::float2{ sharedSurfaceSize_.x * 0.5f, 0.0f };
+	points_[0] = ec::float2{ sharedSurfaceSize_.x * 0.5f, 0.0f };
 
 	// Create hitboxes to go around each line segment.
 	hitboxCount_ = pointCount_;
@@ -148,7 +151,7 @@ void SwingingRope::Draw(Surface* screen, int x, int y)
 // Draw sprite to static Surface used by all swinging ropes to provide a pixel map to do a pixel check against.
 void SwingingRope::PrepareSprite()
 {
-	Surface& sharedSurface{ *(sharedSprite_->GetSurface()) };
+	Surface& sharedSurface{ *(sprite_->GetSurface()) };
 
 	// Clear the surface.
 	//may be faster to use memset(sharedSurface.pixels, 0x000000, sharedSurface.width * sharedSurface.height);
@@ -254,7 +257,7 @@ void SwingingRope::UpdateNodes()
 	}
 
 	// Update hitboxes to surround each line segment.
-	int2 fullStart{ static_cast<int>(size_.x), 0 };
+	int2 fullStart{ static_cast<int>(sharedSurfaceSize_.x), 0 };
 	int2 fullEnd{ 0, 0 };
 	for (int lineIndex{ 0 }; lineIndex < lineSegments_; ++lineIndex)
 	{

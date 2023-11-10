@@ -19,7 +19,7 @@ public:
 
 	void Initialize(const int size);
 
-	SwingingRope* Create(float2 archerPosition);
+	SwingingRope* Create(float2 startTileToCenterOn, Sprite* sharedSprite);
 	void Reset();
 	
 	void Update(float deltaTime);
