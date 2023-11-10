@@ -75,6 +75,7 @@ const bool SaveSystem::LoadData()
 	LoadRopeData(saveData_["ropes"]);
 	LoadArrowData(saveData_["arrows"]);
 	LoadCoinData(saveData_["coins"]);
+	LoadSoulData(saveData_["soul"]);
 	LoadRockData(saveData_["rocks"]);
 	LoadRockPileData(saveData_["rockPiles"]);
 	LoadSavePointData(saveData_["savePoints"]);

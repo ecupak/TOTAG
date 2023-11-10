@@ -23,14 +23,18 @@ Rock::Rock()
 }
 
 
-void Rock::Init(const float2 position, const float2 velocity, Sprite* sprite)
+void Rock::SetSprite(Sprite* sprite)
+{
+	sprite_ = sprite;
+}
+
+
+void Rock::Init(const float2 position, const float2 velocity)
 {
 	shape_->SetPosition(position);
 	*velocity_ = velocity;
 	lifetime_ = 3.0f;
 	
-	sprite_ = sprite;
-
 	friction_ = 100.0f;
 
 	hitboxes_[0].mode_ = Hitbox::Mode::Obstacle | Hitbox::Mode::Object;

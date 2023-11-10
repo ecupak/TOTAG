@@ -9,7 +9,11 @@ class Rock : public GameObject
 public:
 	Rock();
 
-	void Init(const float2 position, const float2 velocity, Sprite* sprite);
+
+	void SetSprite(Sprite* sprite);
+
+
+	void Init(const float2 position, const float2 velocity);
 
 
 	void Update(float deltaTime, float gravity);

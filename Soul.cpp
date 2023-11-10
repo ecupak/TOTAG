@@ -49,9 +49,17 @@ void Soul::StoreRewindData(SoulRewindData& rewindData)
 }
 
 
-// Soul coins do not return once collected.
-void Soul::Rewind(SoulRewindData&) {}
-void Soul::Resume(SoulRewindData&) {}
+// Soul coins do not return once collected. But rewind/resume is used when loading a save file.
+void Soul::Rewind(SoulRewindData& rewindData)
+{
+	GameObject::Rewind(rewindData.gameObjectRewindData_);
+}
+
+
+void Soul::Resume(SoulRewindData& rewindData)
+{
+	GameObject::Resume(rewindData.gameObjectRewindData_);
+}
 
 
 void Soul::OnObjectCollision(GameObject*)

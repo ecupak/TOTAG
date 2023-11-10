@@ -11,7 +11,13 @@
 RockPool::RockPool(const int poolSize)
 	: poolSize_{ poolSize }
 	, rocks_{ new Rock[poolSize_]{} }
-{	}
+{	
+	// Set data that does not change.
+	for (int index{ 0 }; index < poolSize_; ++index)
+	{
+		rocks_[index].SetSprite(&rockSprite_);
+	}
+}
 
 
 RockPool::~RockPool()
@@ -27,7 +33,7 @@ Rock* RockPool::Create(const float2 position, const float2 velocity)
 	{
 		if (!rocks_[index].isActive_)
 		{
-			rocks_[index].Init(position, velocity, &rockSprite_);
+			rocks_[index].Init(position, velocity);
 			return &rocks_[index];
 		}
 	}
